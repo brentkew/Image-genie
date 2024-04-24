@@ -2,14 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import User from "../database/models/user.model";
-import { connectionToDatabase } from "../database/mongoose";
+import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 
 
 // Create
 export async function createUser(user: CreateUserParams) {
     try {
-        await connectionToDatabase();
+        await connectToDatabase();
         const  newUser = await User.create(user);
         return JSON.parse(JSON.stringify(newUser));
     } catch (error) {
@@ -20,7 +20,7 @@ export async function createUser(user: CreateUserParams) {
 // READ
 export async function getUserById(userId: string) {
   try {
-    await connectionToDatabase();
+    await connectToDatabase();
     const user = await User.findOne({ clerkId: userId });
     if (!user) throw new Error("User not found");
     return JSON.parse(JSON.stringify(user));
@@ -32,7 +32,7 @@ export async function getUserById(userId: string) {
 // UPDATE
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
-    await connectionToDatabase();
+    await connectToDatabase();
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
     });
@@ -46,7 +46,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
 // DELETE
 export async function deleteUser(clerkId: string) {
   try {
-    await connectionToDatabase();
+    await connectToDatabase();
     // Find user to delete
     const userToDelete = await User.findOne({ clerkId });
     if (!userToDelete) {
