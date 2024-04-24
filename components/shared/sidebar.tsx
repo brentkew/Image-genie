@@ -73,7 +73,7 @@ const Sidebar = () => {
                 <SignedOut>
 
                     <Button asChild className="bg-purple-gradient text-white bg-cover">
-                        <Link href="/">Login</Link>
+                        <Link href="/sign-in">Login</Link>
                     </Button>
                 </SignedOut>
 
