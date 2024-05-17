@@ -5,15 +5,27 @@ npx create-next-app@latest ./
 # install shadcn 
 npx shadcn-ui@latest init
 
+<!-- Mongodb Connection -->
 # Install mongo db and mongoose
 # Since we are using server less architecture
 # Server full / Server less connection
 npm install mongodb mongoose
 
 # MongoDatabase setup and models
+# Next is run in server less environment means we have to make server request on each API request
 
+<!-- Server action and mutations -->
+<!-- Difference between Server less and server full connection environment -->
 # Server action
+# CRUD functionality for User
+# Server actions and mutation
+# use server directive
+# use client directive
+
+<!-- Webhooks -->
 # Webhooks
+# in current application we use clerk and webhooks
+# Sync clerk data to your backend with webhooks
 
 
 <!-- 00:00:00 — Intro
